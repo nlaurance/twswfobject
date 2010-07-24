@@ -4,19 +4,6 @@ __all__ = ["SwfObject"]
 
 class SwfObject(Widget):
     """
-    This Widget encapsulates the google code swfobject JavaScript library (http://code.google.com/p/swfobject/) for embedding Shockwave Flash content in a standards-friendly manner.
-
-    The current swfobject version packaged with this widget is version 2.1 (http://swfobject.googlecode.com/files/swfobject_2_1.zip)
-
-    Example:
-        
-        From within your controller, simply instantiate a SwfObject and return this instance to be rendered with your template:
-        
-        swfobject = SwfObject(swf = "/path/to/mycontent.swf", width = 640, height = 480, flashvars = {"myvar": 0}) 
-
-
-        From within your template, simplay call the swfobject:
-        ${swfobject()}
     """
 
     javascript = [
@@ -45,15 +32,17 @@ class SwfObject(Widget):
         initial state."""
         super(SwfObject, self).__init__(**kwargs)
 
+        if self.id is None:
+                raise ValueError, "Swfobject is supposed to have id"
         # Load default parameter values
         if self.version is None:
-            self.version = "9.0.0"
+            self.version = "10"
 
         if self.script_access is None:
             self.script_access = "sameDomain"
 
         if self.alternate is None:
-            self.alternate = "Shockwave Flash Version ${version} Required", 
+            self.alternate = "Shockwave Flash Version ${version} Required",
 
         if self.xi_swf is None:
             self.xi_swf = Link(modname=__name__, filename='static/expressInstall.swf')
@@ -75,5 +64,6 @@ class SwfObject(Widget):
         is to prepare all variables that are sent to the template. Those
         variables can accessed as attributes of d."""
         super(SwfObject, self).update_params(d)
-        self.add_call(self.embed_swf(self.swf, self.id, self.width, self.height, self.version, self.xi_swf.link, self.flashvars, self.objparams))
+        self.add_call(self.embed_swf(self.swf, self.id, self.width, self.height, \
+                                     self.version, self.xi_swf.link, self.flashvars, self.objparams))
 
