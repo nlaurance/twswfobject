@@ -3,8 +3,8 @@
 
 __DISTRIBUTION__ = 'tw.swfobject'
 __DESCRIPTION__ = 'ToscaWidget wrapper for swfobject'
-__URL__ = 'http://code.google.com/p/swfobject/'
-__VERSION__ = '0.2a0'
+__URL__ = 'http://code.google.com/p/twswfobject'
+__VERSION__ = '0.2'
 __AUTHOR__ = 'Patrick McKinnon'
 __EMAIL__ = 'swfobject@txsv.com'
 __COPYRIGHT__ = "Copyright 2009 Patrick McKinnon"
