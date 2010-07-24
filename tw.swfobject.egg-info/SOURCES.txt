@@ -1,4 +1,8 @@
+CHANGES.txt
+Contributors.txt
 MANIFEST.in
+PKG-INFO
+README.txt
 setup.cfg
 setup.py
 tw/__init__.py

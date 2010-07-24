@@ -5,6 +5,28 @@ from setuptools import setup, find_packages
 
 execfile(os.path.join("tw", "swfobject", "release.py"))
 
+def read(*rnames):
+    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+
+long_description = (
+    '\n.. contents::\n\n' +
+    'Detailed Documentation\n' +
+    '**********************\n'
+    + '\n' +
+    read('README.txt')
+    + '\n\n' +
+    'Contributors\n' +
+    '************\n'
+    + '\n' +
+    read('Contributors.txt')
+    + '\n' +
+    'Change history\n' +
+    '**************\n'
+    + '\n' +
+    read('CHANGES.txt')
+    + '\n'
+    )
+
 setup(
     name=__DISTRIBUTION__,
     version=__VERSION__,
@@ -29,8 +51,10 @@ setup(
     keywords = [
         'toscawidgets.widgets',
     ],
+    long_description=long_description,
+    # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers = [
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Environment :: Web Environment :: ToscaWidgets',
         'Topic :: Software Development :: Libraries :: Python Modules',
@@ -38,5 +62,8 @@ setup(
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Framework :: TurboGears :: Widgets',
+        'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
     ],
 )
+
