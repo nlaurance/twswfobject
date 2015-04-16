@@ -1,0 +1,1 @@
+This Widget encapsulates the google code swfobject JavaScript library (http://code.google.com/p/swfobject/) for embedding Shockwave Flash content in a standards-friendly manner.
